@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollSlider component Render to match snapshot 1`] = `
+<div>
+  <div
+    class="scroll-slider"
+  >
+    <div
+      class="scroll-slider__container w-100 d-grid"
+    >
+      <ul
+        class="scroll-slider__wrapper test"
+      >
+        <button
+          class="slider__arrow slider__arrow-left slider__hide "
+        >
+          <i
+            class="bi bi-chevron-left"
+          />
+        </button>
+        <button
+          class="slider__arrow slider__arrow-right  "
+        >
+          <i
+            class="bi bi-chevron-right"
+          />
+        </button>
+        <li />
+      </ul>
+    </div>
+  </div>
+</div>
+`;

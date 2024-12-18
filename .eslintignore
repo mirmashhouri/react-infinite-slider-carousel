@@ -1,0 +1,11 @@
+bundles/*
+node_modules/*
+
+webpack.config.js
+jest.config.js
+jest.style__mocks__.js
+jest.file__mocks__.js
+test-setup.ts
+postcss.config.js
+entrypoints.config.js
+shared.js

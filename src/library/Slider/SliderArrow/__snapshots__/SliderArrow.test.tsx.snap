@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SliderArrow component Render to match snapshot 1`] = `
+<div>
+  <button
+    class="slider__arrow slider__arrow-left  "
+  >
+    <i
+      class="bi bi-chevron-left"
+    />
+  </button>
+</div>
+`;
+
+exports[`SliderArrow component Render to match snapshot 2`] = `
+<div>
+  <button
+    class="slider__arrow slider__arrow-right  slider__hide"
+  >
+    <i
+      class="bi bi-chevron-right"
+    />
+  </button>
+</div>
+`;

@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider component Render to match snapshot 1`] = `
+<div>
+  <div
+    class="slider root-test"
+  >
+    <div
+      class="slider__list"
+    >
+      <button
+        class="slider__arrow slider__arrow-left slider__hide "
+      >
+        <i
+          class="bi bi-chevron-left"
+        />
+      </button>
+      <button
+        class="slider__arrow slider__arrow-right  slider__hide"
+      >
+        <i
+          class="bi bi-chevron-right"
+        />
+      </button>
+      <div
+        class="slider-wrapper wrapper-test"
+        style="gap: 20px; transform: translate3d(0px, 0px, 0px);"
+      >
+        <div
+          class="slider-item rounded-4 item-test active scale-up"
+          data-item="slide"
+          style="width: 963px;"
+        >
+          <div>
+            test
+          </div>
+        </div>
+        <div
+          class="slider-item rounded-4 item-test"
+          data-item="slide"
+          style="width: 963px;"
+        >
+          <div>
+            test
+          </div>
+        </div>
+        <div
+          class="slider-item rounded-4 item-test"
+          data-item="slide"
+          style="width: 963px;"
+        >
+          <div>
+            test
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,198 @@
+.slider {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slider__list {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  overflow: hidden;
+}
+
+.slider__list:hover .slider__arrow {
+  display: block !important;
+}
+.slider__list:hover .slider__arrow.slider__hide{
+  display: none !important;
+} 
+
+.slider-wrapper {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 2rem;
+  justify-content: start;
+  padding: 0;
+  margin: 5px 0;
+}
+
+.slider-wrapper .slider-item {
+  transition: all 0.4s linear;
+  list-style-type: none;
+}
+
+.slider-wrapper .slider-item.active.scale-up {
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+/* Scroll Slider */
+.scroll-slider {
+  height: fit-content;
+  position: relative;
+}
+
+.scroll-slider__container {
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  display: grid;
+}
+
+.scroll-slider__container::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+  width: 0;
+  height: 0;
+}
+
+.scroll-slider__container .slider__arrow {
+  transition:
+    visibility 0ms,
+    opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.scroll-slider__container:hover .slider__arrow {
+  visibility: visible;
+  opacity: 1;
+  margin: 0 5px;
+  display: block !important;
+}
+.scroll-slider__container:hover .slider__arrow.slider__hide{
+  display: none !important;
+} 
+
+.scroll-slider__container ul {
+  height: fit-content;
+  width: fit-content !important;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.scroll-slider__container ul li {
+  scroll-snap-align: center;
+}
+
+.scroll-slider__container ul.w-100 {
+  width: 100% !important;
+}
+
+.scroll-slider__hide,
+.slider__hide {
+  display: none !important;
+}
+
+/* Slider Arrows */
+.slider__arrow-left,
+.slider__arrow-right {
+  display: none !important;
+}
+
+.slider__arrow-left,
+.slider__arrow-right {
+  position: absolute;
+  background: transparent;
+  top: 50%;
+  width: 50px;
+  height: 101%;
+  border: 0;
+  font-size: 2.2rem;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.slider__arrow-left:hover,
+.slider__arrow-right:hover {
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.5));
+}
+
+.slider__arrow-left span,
+.slider__arrow-right span {
+  transition: all 0.2s linear;
+  opacity: 0.7;
+  display: block;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.slider__arrow-left span::before,
+.slider__arrow-right span::before {
+  font-size: 3rem;
+  font-weight: 800 !important;
+  background-color: transparent;
+}
+
+.slider__arrow-left {
+  left: -5px;
+  background: linear-gradient(270deg, transparent 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.slider__arrow-left:hover {
+  background: linear-gradient(270deg, transparent 0%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.65) 100%);
+}
+
+.slider__arrow-left:hover span{
+  transform: translate(-65%, -50%);
+  opacity: 1;
+}
+
+.slider__arrow-right {
+  right: -5px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.slider__arrow-right:hover {
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.65) 100%);
+}
+
+.slider__arrow-right:hover span {
+  transform: translate(-35%, -50%);
+  opacity: 1;
+}
+
+/* Hide Arrows */
+@media (hover: none) {
+  .slider__arrow-left,
+  .slider__arrow-right {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .tablet:not(.small-desktop) .slider__arrow-left,
+  .tablet:not(.small-desktop) .slider__arrow-right {
+  display: none !important;
+  }
+}
+
