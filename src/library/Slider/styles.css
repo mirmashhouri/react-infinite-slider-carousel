@@ -196,3 +196,34 @@
   }
 }
 
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.slider-dots .slider-dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #ccc; /* Default dot color */
+  border: 2px solid transparent; /* Transparent border by default */
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.slider-dots .slider-dot.active {
+  background-color: #333 !important; /* Active dot color */
+  border: 2px solid #fff !important; /* Add a white border for visibility */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) !important; /* Subtle shadow for contrast */
+}
+
+.slider-dots .slider-dot:hover {
+  background-color: #bbb !important; /* Slightly darker on hover */
+  border-color: #aaa !important; /* Visible border on hover */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) !important; /* Add a hover effect */
+}
+
+
+

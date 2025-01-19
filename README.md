@@ -2,7 +2,7 @@
 
 The `react-infinite-slider-carousel` is a React component for creating advanced, customizable sliders with support for infinite sliding, autoplay, responsive sizing, and smooth animations. The slider operates in two Scrollable and Advanced modes.
 
-![](infinite-slider.gif)
+![](infinite-react-slider.gif)
 
 
 |Version     | Compatibility|
@@ -73,6 +73,8 @@ interface SliderConfig {
   offset?: number;           // Gap before/after first/last slide in pixels
   slideWidth?: number;       // Fixed width for each slide
   slideClassName?: string; //Optional CSS class name to apply to each slider item.
+  hasDots?: boolean;         // Display dots for slide navigation (default: false)
+  hasArrows?: boolean;       // Display navigation arrows (default: false)
 
   // Animation
   animationDuration?: number;  // Slide transition duration in ms (default: 400)
@@ -208,7 +210,9 @@ There are 3 ways to render slides:
         visibleSlidesCount: 3,
         offset: 40,
         gapBetweenSlides: 20,
-        slideClassName: 'slide'
+        slideClassName: 'slide',
+        hasDots: true,
+        hasArrows: true;  
       } }
   >
      { children }

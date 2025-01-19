@@ -2,7 +2,8 @@ import React, { ReactElement, useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import cnames from 'classnames';
 
-import { SliderArrow } from '../SliderArrow/SliderArrow';
+import { SliderArrow } from '../SliderArrow';
+import { SliderDots } from '../SliderDots';
 import { AdvanceSliderComponent } from './types';
 
 export const AdvanceSlider: AdvanceSliderComponent = observer(({ store, slider }) => {
@@ -19,6 +20,8 @@ export const AdvanceSlider: AdvanceSliderComponent = observer(({ store, slider }
   // Clone array if infinite scrolling is enabled
   const clonedArray = slider.config?.infinite ? [1, 2, 3] : [1];
   let itemIndexCounter = -1;
+
+  const hasArrows = slider.config.hasArrows ?? true; // Default to true if not provided
 
   const getKeys = () =>
     JSON.stringify(
@@ -52,23 +55,47 @@ export const AdvanceSlider: AdvanceSliderComponent = observer(({ store, slider }
     return null;
   }
 
+  const handleDotClick = (index: number) => {
+    moveToNextSlide(index - (activeSlideIndex % slider.children.length));
+  };
+
+  // const renderDots = () => {
+  //   if (!slider.config.hasDots) return null;
+
+  //   return (
+  //     <div className="slider-dots">
+  //       { React.Children.map(slider.children, (_, index) => (
+  //         <div
+  //           key={ index.toString() + 'dots' }
+  //           className={ cnames('slider-dot', { active: (activeSlideIndex % slider.children.length) === index }) }
+  //           role='button'
+  //           onClick={ () => handleDotClick(index) }
+  //         />
+  //       )) }
+  //     </div>
+  //   );
+  // };
+
   return (
     <div className={ cnames('slider', slider.sliderClassName) }>
       <div className="slider__list">
+
         { /* Left Arrow */ }
-        <SliderArrow
-          isLeft
-          hasLeft={ slider.config?.infinite || activeSlideIndex > 0 }
-          hasMoreSlidesOnRight
-          handleClick={ () => moveToNextSlide(-1) }
-        />
+        { hasArrows && (
+          <SliderArrow
+            isLeft
+            hasLeft={ slider.config?.infinite || activeSlideIndex > 0 }
+            hasMoreSlidesOnRight
+            handleClick={ () => moveToNextSlide(-1) }
+          />) }
 
         { /* Right Arrow */ }
-        <SliderArrow
-          hasLeft
-          hasMoreSlidesOnRight={ hasMoreSlidesOnRight }
-          handleClick={ () => moveToNextSlide(1) }
-        />
+        { hasArrows && (
+          <SliderArrow
+            hasLeft
+            hasMoreSlidesOnRight={ hasMoreSlidesOnRight }
+            handleClick={ () => moveToNextSlide(1) }
+          />) }
 
         { /* Slider Items */ }
         <div
@@ -110,6 +137,14 @@ export const AdvanceSlider: AdvanceSliderComponent = observer(({ store, slider }
           ) }
         </div>
       </div>
+
+      { /* Render Dots */ }
+      <SliderDots
+        children={ slider.children }
+        activeSlideIndex={ activeSlideIndex }
+        hasDots={ slider.config.hasDots ?? false }
+        onDotClick={ handleDotClick }
+      />
     </div>
   );
 });

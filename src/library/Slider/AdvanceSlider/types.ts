@@ -18,6 +18,8 @@ export type SliderConfiguration = {
   offset?: number;
   rtl?: boolean;
   slideClassName?: string;
+  hasDots?: boolean;
+  hasArrows?: boolean;
 };
 
 export type AdvancedSliderProps = BaseSliderProps & {
